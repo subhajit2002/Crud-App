@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        tr {
+            margin: 10px 0;
+        }
+
+        td {
+            padding: 10px 0;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="file"] {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="file"] {
+            padding: 5px;
+        }
+
+        .btn {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <form action="/update/<%=user._id%>" method="post" enctype="multipart/form-data">
+    <table>
+        <h1>Edit user <%=user.name%></h1>
+        <tr>
+            <td>Name</td>
+            <td><input type="text" name="name" value="<%=user.name%>"></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="email" name="email" value="<%=user.email%>"></td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td><input type="number" name="phone" value="<%=user.phone%>"></td>
+        </tr>
+        <tr>
+            <td>Image</td>
+            <td><input type="file" name="image" name="image"></td>
+        </tr>
+    </table>
+    <img src="/<%=user.image%>" width="100" class="img-thumbnail mt-1">
+    <input type="hidden" name="old_image" value="<%=user.image%>"><br><br>
+    <input type="submit" name="submit" value="Update User" class="btn btn-success btn-lg">
+    </form>
+</body>
+</html>
